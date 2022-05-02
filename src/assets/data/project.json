@@ -1,0 +1,39 @@
+{"proyect": [
+    {
+        "title": "Personal Portfolio",
+        "img": "assets/img/Personal Portfolio.png",
+        "description": "Portfolio personal realizado para freeCodeCamp",
+        "date": "Abril 2022",
+        "link": "https://codepen.io/nehumartino/full/WNdZqmr"
+        
+    },
+    {
+        "title": "Survey Form",
+        "img": "assets/img/Survey Form.png",
+        "description": "Survey Form realizado para freeCodeCamp",
+        "date": "Abril 2022",
+        "link": "https://codepen.io/nehumartino/full/QWayzbg"
+    },
+    {
+        "title": "Tribute Page",
+        "img": "assets/img/Tribute Page.png",
+        "description": "Tribute Page realizada para freeCodeCamp",
+        "date": "Abril 2022",
+        "link": "https://codepen.io/nehumartino/full/Rwxrome"
+    },
+    {
+        "title": "Technical Documentation Page",
+        "img": "assets/img/Technical Documentation .png",
+        "description": "Technical Doc. realizado para freeCodeCamp",
+        "date": "Abril 2022",
+        "link": "https://codepen.io/nehumartino/full/LYejBoa"
+    },
+    {
+        "title": "assets/img/Landing Page.png",
+        "img": "assets/img/html_logo.png",
+        "description": "Landing Page realizada para freeCodeCamp",
+        "date": "Abril 2022",
+        "link": "https://codepen.io/nehumartino/full/dyJXdvG"
+    }
+]
+}

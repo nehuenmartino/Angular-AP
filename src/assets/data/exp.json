@@ -1,0 +1,15 @@
+{"exp": [
+    {
+        "job": "Docente de la Licenciatura en Musicoterapia - UBA",
+        "img": "assets/img/UBA.svg.png",
+        "description": "Prácticas Profesionales Emergentes: Módulo II - Ayudante de Trabajos Prácticos de Primera",
+        "period":"Octubre 2021 - Actualidad"
+    },
+    {
+        "job": "Docente de Instrumento - Instituto Privado de Música",
+        "img": "assets/img/guitar_logo.png",
+        "description":"Clases particulares/grupales de Guitarra, Bajo o Ukelele",
+        "period":"Diciembre 2012 - Diciembre 2020"
+    }
+]
+}

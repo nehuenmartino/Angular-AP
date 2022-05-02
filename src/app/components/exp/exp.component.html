@@ -2,25 +2,15 @@
     <h2>Experiencia</h2>
 
     <div class="container-fluid">
-        <div class="row">
+        <div *ngFor="let item of exp" class="row">
             <div class="col-2 mb-3">
-                <img src="assets/img/UBA.svg.png" class="img-fluid" alt="Logo de la UBA">
+                <img [src]="item.img" class="img-fluid" alt="Logo de la UBA">
             </div>
             <div class="col mt-3">
-                <h3>Docente de la Licenciatura en Musicoterapia - UBA</h3>
-                <h4>Octubre 2021 - Actualidad</h4>
-                <p>Prácticas Profesionales Emergentes: Módulo II - Ayudante de Trabajos Prácticos de Primera</p>
+                <h3>{{item.job}}</h3>
+                <h4>{{item.period}}</h4>
+                <p>{{item.description}}</p>
             </div> >
-        </div>
-        <div class="row">
-            <div class="col-2">
-                <img src="assets/img/guitar_logo.png" class="img-fluid" alt="Logo de un mástil de guitarra">
-            </div>
-            <div class="col mt-3">
-                <h3>Docente de Instrumento - Instituto Privado de Música</h3>
-                <h4>Diciembre 2012 - Diciembre 2020</h4>
-                <p>Clases particulares/grupales de Guitarra, Bajo o Ukelele</p>
-            </div>
         </div>
     </div>
 </section>

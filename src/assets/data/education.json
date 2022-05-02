@@ -1,0 +1,46 @@
+{
+    "education": [
+        {
+            "school": "Universidad Tecnológica Nacional - Facultad Regional Buenos Aires",
+            "title": "Ingeniería en sistemas de información",
+            "img": "assets/img/logo_utn.png",
+            "period":"2021 - Actualidad"
+        },
+        {
+            "school": "Argentina Programa - #YoProgramo",
+            "title": "Full Stack Developer",
+            "img": "assets/img/APLogo-20-20.png",
+            "period":"Noviembre 2021 - Mayo 2022"
+        },
+        {
+            "school": "freeCodeCamp",
+            "title": "Responsive Web Design",
+            "img": "assets/img/freecodecamp_logo.png",
+            "period":"Abril 2022"
+        },
+        {
+            "school": "Fundación Telefónica Movistar",
+            "title": "Programación con Javascript",
+            "img": "assets/img/fundacion_logo.png",
+            "period":"Abril 2022"
+        },
+        {
+            "school": "Fundación Telefónica Movistar",
+            "title": "Fundamentos de Programación",
+            "img": "assets/img/fundacion_logo.png",
+            "period":"Marzo 2022"
+        },
+        {
+            "school": "Argentina Programa - #SéProgramar",
+            "title": "Introducción a la Programación con Gobstones, Javascript y Ruby",
+            "img": "assets/img/APLogo-20-20.png",
+            "period":"Abril 2021 - Junio 2021"
+        },
+        {
+            "school": "Universidad de Buenos Aires",
+            "title": "Licenciatura en Musicoterapia",
+            "img": "assets/img/UBA.svg.png",
+            "period":"2015 - 2019"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{"skills": [
+    {
+        "skill": "HTML5",
+        "img": "assets/img/html_logo.png"
+    },
+    {
+        "skill": "CSS3",
+        "img": "assets/img/CSS-Logo.png"
+    },
+    {
+        "skill": "BOOTSTRAP",
+        "img": "assets/img/bootstrap_logo.png"
+    },
+    {
+        "skill": "ANGULAR",
+        "img": "assets/img/angular_logo.png"
+    },
+    {
+        "skill": "GIT",
+        "img": "assets/img/git_logo.png"
+    },
+    {
+        "skill": "JAVASCRIPT",
+        "img": "assets/img/JavaScript_logo.png"
+    },
+    {
+        "skill": "JAVA",
+        "img": "assets/img/java_logo.jpg"
+    },
+    {
+        "skill": "TYPESCRIPT",
+        "img": "assets/img/Typescript_logo.png"
+    },
+    {
+        "skill": "MYSQL",
+        "img": "assets/img/MYSQL_logo.png"
+    },
+    {
+        "skill": "SPRING BOOT",
+        "img": "assets/img/spring_logo.png"
+    }    
+]
+}

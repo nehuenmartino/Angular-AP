@@ -1,10 +1,8 @@
 <section id="aboutMe">
-    <img src="">
+    <img [src]="person.image" alt="Imagen de Nehuen">
     <h4>Hola! Soy</h4>
-    <h1>Nehuen Martino</h1>
-    <h4>Full Stack Developer Jr.</h4>
-    <h2>Sobre mí</h2>
-    <p>¡Estoy entusiasmado por ingresar al mundo de la programación y el desarrollo!
-        Actualmente soy estudiante en Ingeniería en Sistemas de Información en la UTN,
-        buscando insertarme en mi primer trabajo IT para seguir formándome y afinar mis capacidades.</p>
+    <h1>{{person.fullName}}</h1>
+    <h4>{{person.position}}</h4>
+    <h2>Sobre mí...</h2>
+    <p>{{person.description}}</p>
 </section>

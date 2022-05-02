@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-projects',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  proyect: any;
 
-  constructor() { }
+  constructor(private servicioDePersona:PersonService) { }
 
   ngOnInit(): void {
-  }
-
-}
+    this.servicioDePersona.obtenerDatosPersona().subscribe(data => {
+      console.log(data);
+      this.proyect=data["proyect"];
+      
+    });
+  }}
