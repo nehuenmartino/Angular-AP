@@ -1,6 +1,14 @@
 <section id="projects">
     <h2>Proyectos</h2>
-
+    <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2">
+        <i class="fa-solid fa-plus"></i>        
+    </button>
+    <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2">
+        <i class="fa-solid fa-pencil"></i>
+    </button>
+    <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2">
+        <i class="fa-solid fa-xmark"></i>        
+    </button>
     <div class="row">
 
         <div class="col-4">

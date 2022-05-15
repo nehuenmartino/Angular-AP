@@ -1,6 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Person } from '../entities/person';
 
 
 @Injectable({
@@ -13,6 +14,10 @@ export class PersonService {
    obtenerDatosPersona():Observable<any>{
     return this.http.get('assets/data/person.json')
    }
+   editarDatosPersona(person:Person):Observable<any>{
+     return this.http.post('http://localhost:3000/posts', person)
+   }
+
    obtenerDatosEducacion():Observable<any>{
     return this.http.get('assets/data/education.json')
    }

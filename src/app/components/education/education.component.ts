@@ -8,6 +8,7 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class EducationComponent implements OnInit {
   education: any;
+  usuarioAutenticado: boolean= true;
 
   constructor(private servicioDePersona: PersonService) {}
 

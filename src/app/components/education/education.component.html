@@ -1,7 +1,9 @@
 <section id="education">
 
     <h2>Educación</h2>
-
+    <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2">
+                    <i class="fa-solid fa-plus"></i>        
+                </button>
     <div class="container-fluid">
         <div *ngFor="let item of education" class="row">
             <div class="col-2">
@@ -11,6 +13,13 @@
                 <h3>{{item.school}}</h3>
                 <h4>{{item.period}}</h4>
                 <p>{{item.title}}</p>
+                
+                <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2">
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
+                <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2">
+                    <i class="fa-solid fa-xmark"></i>        
+                </button>
             </div>
         </div>
     </div>

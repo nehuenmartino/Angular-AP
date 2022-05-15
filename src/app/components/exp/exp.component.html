@@ -1,8 +1,11 @@
 <section id="exp">
     <h2>Experiencia</h2>
-
+    <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2">
+        <i class="fa-solid fa-plus"></i>
+    </button>
     <div class="container-fluid">
         <div *ngFor="let item of exp" class="row">
+
             <div class="col-2 mb-3">
                 <img [src]="item.img" class="img-fluid" alt="Logo de la UBA">
             </div>
@@ -10,7 +13,13 @@
                 <h3>{{item.job}}</h3>
                 <h4>{{item.period}}</h4>
                 <p>{{item.description}}</p>
-            </div> >
+                <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2">
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
+                <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
     </div>
 </section>

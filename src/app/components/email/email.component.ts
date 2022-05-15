@@ -6,7 +6,7 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./email.component.css']
 })
 export class EmailComponent implements OnInit {
-  person: any;
+  person: any;  
 
   constructor(private servicioDePersona:PersonService) { }
 

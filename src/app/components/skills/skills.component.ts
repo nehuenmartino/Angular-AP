@@ -8,7 +8,7 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class SkillsComponent implements OnInit {
   skills: any;
-
+usuarioAutenticado: boolean= true;
   constructor(private servicioDePersona: PersonService) {}
 
   ngOnInit(): void {

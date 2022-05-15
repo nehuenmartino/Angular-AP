@@ -7,14 +7,15 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  proyect: any;
+  project: any;
+  usuarioAutenticado: boolean= true;
 
   constructor(private servicioDePersona:PersonService) { }
 
   ngOnInit(): void {
     this.servicioDePersona.obtenerDatosPersona().subscribe(data => {
       console.log(data);
-      this.proyect=data["proyect"];
+      this.project=data["proyect"];
       
     });
   }}
