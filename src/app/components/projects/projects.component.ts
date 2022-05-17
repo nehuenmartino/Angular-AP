@@ -8,14 +8,23 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class ProjectsComponent implements OnInit {
   project: any;
+  url!: string;
   usuarioAutenticado: boolean= true;
 
   constructor(private servicioDePersona:PersonService) { }
 
   ngOnInit(): void {
-    this.servicioDePersona.obtenerDatosPersona().subscribe(data => {
+    this.servicioDePersona.obtenerDatosProyectos().subscribe((data) => {
       console.log(data);
-      this.project=data["proyect"];
-      
+      this.project = data["project"];      
     });
-  }}
+  }
+
+  /*openLink(url: string){
+  this.url = this.project.link
+    window.open(this.project.link, "_blank")
+  } 
+  
+  (click)="openLink(project.link)"*/
+  
+}

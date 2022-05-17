@@ -1,22 +1,31 @@
 <section id="skills">
-    <h2>Habilidades</h2>
-    <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2">
-        <i class="fa-solid fa-plus"></i>        
-    </button>
-    
-    <ul id="light-slider">
-        <li *ngFor="let item of skills">                
-            <div class="box">
-                <img [src]="item.img" class="img-fluid" alt="Logo de HTML5"/>
-                <h1>{{item.skill}}</h1>
-                <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2">
-        <i class="fa-solid fa-pencil"></i>
-    </button>
-    <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2">
-        <i class="fa-solid fa-xmark"></i>        
-    </button>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 mt-1">
+                <h2>Habilidades</h2>
             </div>
-        </li>
-    </ul>
+            <div class="col-1">
+                <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="col">
+            <div class="row">
+                <div *ngFor="let item of skills" class="card text-center" style="width: 15rem;">
+                    <img [src]="item.img" class="card-img-top img-fluid"/>
+                    <div class="card-body">
+                        <h3 class="card-text">{{item.skill}}</h3>
+                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </section>

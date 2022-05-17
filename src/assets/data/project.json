@@ -1,4 +1,5 @@
-{"proyect": [
+{
+    "project": [
     {
         "title": "Personal Portfolio",
         "img": "assets/img/Personal Portfolio.png",
@@ -22,15 +23,15 @@
         "link": "https://codepen.io/nehumartino/full/Rwxrome"
     },
     {
-        "title": "Technical Documentation Page",
+        "title": "Technical Documentation",
         "img": "assets/img/Technical Documentation .png",
         "description": "Technical Doc. realizado para freeCodeCamp",
         "date": "Abril 2022",
         "link": "https://codepen.io/nehumartino/full/LYejBoa"
     },
     {
-        "title": "assets/img/Landing Page.png",
-        "img": "assets/img/html_logo.png",
+        "title": "Landing Page",
+        "img": "assets/img/Landing Page.png",
         "description": "Landing Page realizada para freeCodeCamp",
         "date": "Abril 2022",
         "link": "https://codepen.io/nehumartino/full/dyJXdvG"

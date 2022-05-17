@@ -1,5 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
 /*header*/
 
 header h1 {
@@ -13,7 +11,7 @@ header a {
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
-  transition: background-size 0.5s;
+  transition: background-size 1s;
 }
 header a:hover {
   color: dimgray;
@@ -40,6 +38,7 @@ section {
 }
 
 /*social media*/
+
 .social-media {
   position: fixed;
   top: 50%;
@@ -54,9 +53,11 @@ section {
   text-decoration: none;
   color: white;
   margin-bottom: 8px;
+  transition: all 0.5s;
 }
 .social-media a:hover {
   color: dimgray;
+  transform: translateY(-5px);
 }
 .social-media::after {
   content: "";
@@ -71,29 +72,34 @@ section {
 }
 
 /*email*/
+
 .email {
   position: fixed;
-  top: 52%;
-  right: -4%;
-  font-size: 1.1em;
-  z-index: 100;
-  transform: rotate(90deg);
+  top: 31%;
+  right: 1.3%;
+  font-size: 0.9em;
+  letter-spacing: 0.2em;
+  display: flex;
+  flex-direction: column;
 }
 .email a {
   text-decoration: none;
   color: white;
+  writing-mode: vertical-rl;
+  margin-bottom: 8px;
+  transition: all 0.5s;
 }
 .email a:hover {
   color: dimgray;
+  transform: translateY(-5px);
 }
-.vl {
+.email::after {
+  content: "";
+  display: block;
   width: 1px;
-  background-color: white;
   height: 200px;
-  z-index: 100;
-  position: fixed;
-  top: 74%;
-  right: 3.8%;
+  margin: 0px auto;
+  background-color: white;
 }
 
 /* habilidades*/
@@ -101,54 +107,44 @@ section {
   justify-content: center;
   align-items: center;
 }
-ul {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
-.box {
+#skills .card {
   width: 350px;
-  height: 450px;
-  background-color: #1e1e26;
+  height: 350px;
+  background-color: black;
   border-radius: 10px;
   box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
   margin: 20px 10px;
+  transition: all 2s;
 }
-.box img {
-  width: auto;
+#skills .card:hover {
+  background-color: #1e1e26;
+  width:200px;  
+}
+#skills .card img {
   margin-top: 15px;
+  transition: all 1s;
 }
-.box h1 {
-  margin-bottom: 15px;
+#skills .card img:hover {
+  margin-top: 15px;
+  transform: scale(1.1,1.1);
+}
+#skills .card h1 {
+  margin-bottom: 20px;  
 }
 
 /*proyectos*/
 
-.card {
-  margin: 10px;
+#projects .card {
+  margin: 35px;
+  transition: all 0.5s;  
+  border-color: white;
 }
-.card:hover {
+#projects .card:hover {
   box-shadow: 1px 1px 10px #ffffff;
 }
-.card-body {
-  background-color: black;
-}
-.card-title {
-  color: white;
-}
-h2 {
-  margin-bottom: 20px;
-}
-
-/*footer*/
 
 /*botones*/
+
 .fa-xmark {
   font-size: 20px;
 }
@@ -157,16 +153,16 @@ h2 {
 .modal-body {
   background-color: rgb(20, 20, 20);
 }
-.modal-content{
+.modal-content {
   background-color: rgb(20, 20, 20);
 }
-form{
-  background-color:rgb(20, 20, 20);
+form {
+  background-color: rgb(20, 20, 20);
 }
 .ng-valid:not(form).ng-touched {
-  border-left: 5px solid #42A948; /* green */
-  }
-  
-  .ng-invalid:not(form).ng-touched {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form).ng-touched {
   border-left: 5px solid #a94442; /* red */
-  }
+}

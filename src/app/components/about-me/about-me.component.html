@@ -1,15 +1,23 @@
 <section id="aboutMe">
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-11">
     <img [src]="person.image" alt="Imagen de Nehuen">
+</div>
+<div class="col-1">
+    <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2" data-bs-toggle="modal"
+        data-bs-target="#edit-button" (click)="mostrarDatos()">
+        <i class="fa-solid fa-pencil"></i>
+    </button></div>
+       </div>
+    </div>
     <h4>Hola! Soy</h4>
     <h1>{{person.fullName}}</h1>
     <h4>{{person.position}}</h4>
     <h2>Sobre mí...</h2>
     <p>{{person.description}}</p>
 
-    <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2" data-bs-toggle="modal"
-        data-bs-target="#edit-button" (click)="mostrarDatos()">
-        <i class="fa-solid fa-pencil"></i>
-    </button>
+    
 
     <div class="modal fade" id="edit-button" tabindex="-1" aria-labelledby="edit-buttonLabel" aria-hidden="true">
         <div class="modal-dialog">

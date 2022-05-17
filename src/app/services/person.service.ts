@@ -28,6 +28,6 @@ export class PersonService {
     return this.http.get('assets/data/skills.json')
    }
    obtenerDatosProyectos():Observable<any>{
-    return this.http.get('assets/data/proyects.json')
+    return this.http.get('assets/data/project.json')
    }
 }
