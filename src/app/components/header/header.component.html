@@ -1,5 +1,5 @@
 <header>
-    <div class="container-fluid fixed-top nav">
+    <div class="container-fluid fixed-top nav" style="max-height: 115px">
         <div class="row align-items-center">
             <div class="col-2">
                 <img src="assets/img/APLogo-20-20.png" class="img-fluid" alt="Logo de Argentina Programa" />
@@ -23,7 +23,48 @@
                 <a href="#projects">Proyectos</a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-outline-light">Log In</button>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+                    data-bs-target="#log-in-button">Log In</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="log-in-button" tabindex="-1" aria-labelledby="log-in-buttonLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="log-in-buttonLabel">Log in</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="form">
+                        <div class="mb-3">
+                            <label for="user" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="user" formControlName="user">
+                            <div *ngIf="user?.invalid && (user?.dirty || user?.touched)">
+                                <div *ngIf="user?.errors?.['required']" class="text-danger">
+                                    Este campo es obligatorio
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Imagen personal</label>
+                                <input type="text" class="form-control" id="password" formControlName="password">
+                                <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                                    <div *ngIf="password?.errors?.['required']" class="text-danger">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="password?.errors?.['pattern']" class="text-danger">
+                                        El formato no es correcto.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cerrarAcercaDe" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" (click)="comprobarUsuario()">Guardar</button>
+                </div>
             </div>
         </div>
     </div>

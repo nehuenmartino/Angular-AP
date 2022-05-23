@@ -1,8 +1,8 @@
 export class Person {
-    fullName: string;
-    position: string;
-    description: string;
-    image: string;
+ fullName: string;
+ position: string;
+ description: string;
+ image: string;
 
     constructor(fullName: string, position: string, description: string, image: string) {
         this.fullName = fullName;        
@@ -10,4 +10,6 @@ export class Person {
         this.description = description;
         this.image = image;
     }
+
+    /*hacer getters y setters*/
 }

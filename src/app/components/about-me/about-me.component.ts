@@ -21,7 +21,7 @@ export class AboutMeComponent implements OnInit {
       fullName: ['', [Validators.required]],
       position: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      url: ['', [Validators.required, Validators.pattern('https?://.+')]],
+      url: ['', [Validators.required, Validators.pattern('https?://.+')]]
     });
   }
 

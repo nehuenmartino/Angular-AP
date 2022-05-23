@@ -11,10 +11,11 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
         <div *ngFor="let item of exp" class="row">
             <div class="col-2 mb-3">
-                <img [src]="item.img" class="img-fluid" alt="Logo de la UBA">
+                <img [src]="item.img" class="img-fluid">
             </div>
             <div class="col mt-3">
                 <div class="row">
@@ -22,7 +23,8 @@
                         <h3>{{item.job}}</h3>
                     </div>
                     <div class="col-2">
-                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2">
+                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2"
+                            data-bs-toggle="modal" data-bs-target="#edit-button-exp" (click)="mostrarDatosExperiencia()">
                             <i class="fa-solid fa-pencil"></i>
                         </button>
                         <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2">
@@ -31,9 +33,63 @@
                     </div>
                     <h4>{{item.period}}</h4>
                     <p>{{item.description}}</p>
-
                 </div>
             </div>
+            <div class="modal fade" id="edit-button-exp" tabindex="-1" aria-labelledby="edit-button-exp" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="edit-button-exp">Editar Experiencia...</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="form">
+                                <div class="mb-3">
+                                    <label for="img" class="form-label">Imagen representativa del Trabajo</label>
+                                    <input type="text" class="form-control" id="img" formControlName="img">
+                                    <div *ngIf="img?.invalid && (img?.dirty || img?.touched)">
+                                        <div *ngIf="img?.errors?.['required']" class="text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                        <div *ngIf="img?.errors?.['pattern']" class="text-danger">
+                                            El formato no es correcto.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><label for="job" class="form-label">Trabajo realizado</label>
+                                    <input type="text" class="form-control" id="job" formControlName="job">
+                                    <div *ngIf="job?.invalid && (job?.dirty || job?.touched)">
+                                        <div *ngIf="job?.errors?.['required']" class="text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><label for="period" class="form-label">Período de funciones</label>
+                                    <input type="text" class="form-control" id="period" formControlName="period">
+                                    <div *ngIf="period?.invalid && (period?.dirty || period?.touched)">
+                                        <div *ngIf="period?.errors?.['required']" class="text-danger">
+                                            Este campo es obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Descripción del trabajo realizado</label>
+                                    <input type="text" class="form-control" id="description" formControlName="description">
+                                    <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                                        <div *ngIf="description?.errors?.['required']" class="text-danger">
+                                            Este campo es obligatorio
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="cerrarExperiencia" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" (click)="guardarExperiencia()">Guardar</button>
+                        </div>
+                    </div>
+                </div>
         </div>
+    </div>
     </div>
 </section>
