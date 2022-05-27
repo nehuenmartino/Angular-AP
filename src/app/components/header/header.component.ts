@@ -24,7 +24,7 @@ private formBuilder: FormBuilder
 ngOnInit(): void {
   this.servicioDePersona.obtenerDatosPersona().subscribe((data) => {
     console.log(data);
-    this.person = data['Person'];
+    this.person = data;
   });
 }
 

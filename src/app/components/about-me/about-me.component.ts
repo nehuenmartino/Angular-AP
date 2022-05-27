@@ -9,7 +9,7 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./about-me.component.css'],
 })
 export class AboutMeComponent implements OnInit {
-  person: any;
+  person!: Person;
   usuarioAutenticado: boolean = true;
   form!: FormGroup;
 
@@ -21,30 +21,30 @@ export class AboutMeComponent implements OnInit {
       fullName: ['', [Validators.required]],
       position: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      url: ['', [Validators.required, Validators.pattern('https?://.+')]]
+      image: ['', [Validators.required, Validators.pattern('https?://.+')]]
     });
   }
-
   ngOnInit(): void {
     this.servicioDePersona.obtenerDatosPersona().subscribe((data) => {
       console.log(data);
-      this.person = data['Person'];
+      this.person = data;
     });
   }
 
   guardarAcercaDe() {
     if (this.form.valid) {
       let personEdit = new Person(
+        this.person.id,
         this.form.controls['fullName'].value,
         this.form.controls['position'].value,
         this.form.controls['description'].value,
-        this.form.controls['url'].value
+        this.form.controls['image'].value,
+        
       );
       this.servicioDePersona.editarDatosPersona(personEdit).subscribe(
         (data) => {
           this.person = personEdit;
           this.form.reset();
-          document.getElementById('cerrarAcercaDe')?.click();
         },
         (error) => {
           alert(
@@ -61,7 +61,7 @@ export class AboutMeComponent implements OnInit {
     this.form.get('fullName')?.setValue(this.person.fullName);
     this.form.get('position')?.setValue(this.person.position);
     this.form.get('description')?.setValue(this.person.description);
-    this.form.get('url')?.setValue(this.person.url);
+    this.form.get('image')?.setValue(this.person.image);
   }
 
   get fullName() {
@@ -75,7 +75,7 @@ export class AboutMeComponent implements OnInit {
   get description() {
     return this.form.get('description');
   }
-  get url() {
-    return this.form.get('url');
+  get image() {
+    return this.form.get('image');
   }
 }

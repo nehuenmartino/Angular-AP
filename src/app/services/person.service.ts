@@ -2,7 +2,6 @@ import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from '../entities/person';
-import {Education} from '../entities/education';
 import { Experience } from '../entities/experience';
 import {Project} from '../entities/project';
 
@@ -11,24 +10,16 @@ import {Project} from '../entities/project';
   providedIn: 'root'
 })
 export class PersonService {
+url: string="http://localhost:8080/persona";
 
   constructor(private http:HttpClient) {
    }
-   obtenerDatosPersona():Observable<any>{
-    return this.http.get('assets/data/person.json')
+   obtenerDatosPersona():Observable<Person>{
+    return this.http.get<Person>(this.url+"/4")
    }
    editarDatosPersona(person:Person):Observable<any>{
-     return this.http.post('http://localhost:3000/posts', person)
+     return this.http.post(this.url, person)
    }
-
-   
-
-   obtenerDatosEducacion():Observable<any>{
-    return this.http.get('assets/data/education.json')
-   }
-   editarDatosEducacion(education:Education):Observable<any>{
-    return this.http.post('http://localhost:3000/posts', education)
-  }
 
 
    obtenerDatosExperiencia():Observable<any>{

@@ -1,15 +1,26 @@
 export class Education {
-    private school: string;
-    private title: string;
-    private img: string;
-    private period: string;
-  
-      constructor(school: string, title: string, img: string, period: string) {
-          this.school = school;        
-          this.title = title;
-          this.img = img;
-          this.period = period;
-      }
-  
-      /*hacer getters y setters*/
+  id: number;
+  school: string;
+  title: string;
+  img: string;
+  periodo: string;
+  idPerson: number;
+
+  constructor(
+    id: number,
+    school: string,
+    title: string,
+    img: string,
+    periodo: string,
+    idPerson: number
+  ) {
+    this.id = id;
+    this.school = school;
+    this.title = title;
+    this.img = img;
+    this.periodo = periodo;
+    this.idPerson = idPerson;
   }
+
+  /*hacer getters y setters*/
+}

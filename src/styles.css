@@ -20,22 +20,53 @@ header a:hover {
 .nav {
   background: black;
   box-shadow: 0 1px 0 rgba(59, 57, 57, 0.4);
+}
+
+/*about me*/
+#img-perfil {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  top: -5%;
+  z-index: 1;
+  transition: all 0.5s;
+}
+#img-perfil:hover {
+ transform: translate(-5px,-5px);
   
 }
 
+#img-perfil-back {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  z-index: -1;
+  left: -350%;
+  top:5%;
+  filter: grayscale(200%);
+}
+#img-perfil-back:hover {
+  transform: translateY(5px);
+}
 /*body*/
 
 body {
   background: black;
   color: white;
 }
+
 section {
+  margin-bottom: 10px;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+}
+.box {
   border-color: dimgray;
   border-style: solid;
   border-width: 1px;
   border-radius: 13px;
-  margin-bottom: 10px;
-  padding: 15px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 /*social media*/
@@ -119,7 +150,7 @@ section {
 }
 #skills .card:hover {
   background-color: #1e1e26;
-  width:200px;  
+  width: 200px;
 }
 #skills .card img {
   margin-top: 15px;
@@ -127,17 +158,17 @@ section {
 }
 #skills .card img:hover {
   margin-top: 15px;
-  transform: scale(1.1,1.1);
+  transform: scale(1.1, 1.1);
 }
 #skills .card h1 {
-  margin-bottom: 20px;  
+  margin-bottom: 20px;
 }
 
 /*proyectos*/
 
 #projects .card {
   margin: 35px;
-  transition: all 0.5s;  
+  transition: all 0.5s;
   border-color: white;
 }
 #projects .card:hover {

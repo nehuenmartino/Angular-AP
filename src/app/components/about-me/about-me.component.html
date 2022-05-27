@@ -1,78 +1,92 @@
 <section id="aboutMe">
-   <div class="container-fluid">
-       <div class="row">
-           <div class="col-11">
-    <img [src]="person.image" alt="Imagen de Nehuen">
-</div>
-<div class="col-1">
-    <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2" data-bs-toggle="modal"
-        data-bs-target="#edit-button" (click)="mostrarDatos()">
-        <i class="fa-solid fa-pencil"></i>
-    </button></div>
-       </div>
-    </div>
-    <h4>Hola! Soy</h4>
-    <h1>{{person.fullName}}</h1>
-    <h4>{{person.position}}</h4>
-    <h2>Sobre mí...</h2>
-    <p>{{person.description}}</p>
+    <div class="box">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <img [src]="person.image" id="img-perfil">
+            </div>
+            <div class="col-1">
+                <img [src]="person.image" id="img-perfil-back">
+            </div>
+            <div class="col-8 mt-4">
+                <h4>Hola! Soy</h4>
+                <h1>{{person.fullName}}</h1>
+                <h4>{{person.position}}</h4>
+                <div class="row">
+        <div class="col-3 mt-1">
+            <h2>Sobre mí...</h2>
+        </div>
+        <div class="col"><button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2"
+                data-bs-toggle="modal" data-bs-target="#edit-button" (click)="mostrarDatos()">
+                <i class="fa-solid fa-pencil"></i>
+            </button></div>
 
+    </div><p>{{person.description}}</p>
+            </div>
+        </div>
+
+    </div>
     
 
-    <div class="modal fade" id="edit-button" tabindex="-1" aria-labelledby="edit-buttonLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="edit-buttonLabel">Editar Acerca De...</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form [formGroup]="form">
-                        <div class="mb-3">
-                            <label for="fullName" class="form-label">Nombre y Apellido</label>
-                            <input type="text" class="form-control" id="fullName" formControlName="fullName">
-                            <div *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)">
-                                <div *ngIf="fullName?.errors?.['required']" class="text-danger">
-                                    Este campo es obligatorio
+        
+
+
+
+        <div class="modal fade" id="edit-button" tabindex="-1" aria-labelledby="edit-buttonLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="edit-buttonLabel">Editar Acerca De...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="form">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Nombre y Apellido</label>
+                                <input type="text" class="form-control" id="fullName" formControlName="fullName">
+                                <div *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)">
+                                    <div *ngIf="fullName?.errors?.['required']" class="text-danger">
+                                        Este campo es obligatorio
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mb-3"><label for="position" class="form-label">Posición</label>
-                            <input type="text" class="form-control" id="position" formControlName="position">
-                            <div *ngIf="position?.invalid && (position?.dirty || position?.touched)">
-                                <div *ngIf="position?.errors?.['required']" class="text-danger">
-                                    Este campo es obligatorio
+                            <div class="mb-3"><label for="position" class="form-label">Posición</label>
+                                <input type="text" class="form-control" id="position" formControlName="position">
+                                <div *ngIf="position?.invalid && (position?.dirty || position?.touched)">
+                                    <div *ngIf="position?.errors?.['required']" class="text-danger">
+                                        Este campo es obligatorio
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mb-3"><label for="description" class="form-label">Descripción</label>
-                            <input type="text" class="form-control" id="description" formControlName="description">
-                            <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
-                                <div *ngIf="description?.errors?.['required']" class="text-danger">
-                                    Este campo es obligatorio
+                            <div class="mb-3"><label for="description" class="form-label">Descripción</label>
+                                <input type="text" class="form-control" id="description" formControlName="description">
+                                <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                                    <div *ngIf="description?.errors?.['required']" class="text-danger">
+                                        Este campo es obligatorio
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="url" class="form-label">Imagen personal</label>
-                            <input type="text" class="form-control" id="url" formControlName="url">
-                            <div *ngIf="url?.invalid && (url?.dirty || url?.touched)">
-                                <div *ngIf="url?.errors?.['required']" class="text-danger">
-                                    Este campo es obligatorio
-                                </div>
-                                <div *ngIf="url?.errors?.['pattern']" class="text-danger">
-                                    El formato no es correcto.
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Imagen personal</label>
+                                <input type="text" class="form-control" id="image" formControlName="image">
+                                <div *ngIf="image?.invalid && (image?.dirty || image?.touched)">
+                                    <div *ngIf="image?.errors?.['required']" class="text-danger">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="image?.errors?.['pattern']" class="text-danger">
+                                        El formato no es correcto.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="cerrarAcercaDe" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" (click)="guardarAcercaDe()">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="cerrarAcercaDe" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button"  class="btn btn-primary" (click)="guardarAcercaDe()" data-bs-dismiss="modal">Guardar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
