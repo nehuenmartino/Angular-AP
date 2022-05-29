@@ -1,41 +1,167 @@
 <section id="education">
     <div class="box">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2 mt-1">
-                <h2>Educación</h2>
-            </div>
-            <div class="col-1">
-                <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div *ngFor="let item of listEducation" class="row m-3">
-            <div class="col-2">
-                <img [src]="item.img" class="img-fluid">
-            </div>
-            <div class="col">
-                <div class="row">
-                    <div class="col-10">
-                        <h3>{{item.school}}</h3>
-                    </div>
-                    <div class="col-2">
-                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2"
-                            data-bs-toggle="modal" data-bs-target="#edit-button-edu" (click)="mostrarDatosEducacion(item)">
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2" (click)="eliminarEducacion(item)">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </div>
-                    <h4>{{item.title}}</h4>
-                    <p>{{item.periodo}}</p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2 mt-1">
+                    <h2>Educación</h2>
+                </div>
+                <div class="col-1">
+                    <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2" data-bs-toggle="modal" data-bs-target="#new-edu">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div *ngFor="let item of listEducation" class="row m-3">
+                <div class="col-2">
+                    <img [src]="item.img" class="img-fluid">
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-10">
+                            <h3>{{item.school}}</h3>
+                        </div>
+                        <div class="col-2">
+                            <button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2"
+                                data-bs-toggle="modal" data-bs-target="#edit-button-edu"
+                                (click)="mostrarDatosEducacion(item)">
+                                <i class="fa-solid fa-pencil"></i>
+                            </button>
+                            <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2"
+                                (click)="eliminarEducacion(item)">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                        <h4>{{item.title}}</h4>
+                        <p>{{item.periodo}}</p>
+                    </div>
+                </div>
+                <div class="modal fade" id="edit-button-edu" tabindex="-1" aria-labelledby="edit-buttonLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="edit-buttonLabel">Editar Educación...</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form [formGroup]="form">
+                                    <div class="mb-3">
+                                        <label for="img" class="form-label">Imagen de la Institución</label>
+                                        <input type="text" class="form-control" id="img" formControlName="img">
+                                        <div *ngIf="img?.invalid && (img?.dirty || img?.touched)">
+                                            <div *ngIf="img?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                            <div *ngIf="img?.errors?.['pattern']" class="text-danger">
+                                                El formato no es correcto.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3"><label for="school" class="form-label">Institución</label>
+                                        <input type="text" class="form-control" id="school" formControlName="school">
+                                        <div *ngIf="school?.invalid && (school?.dirty || school?.touched)">
+                                            <div *ngIf="school?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label">Título de estudios realizados</label>
+                                        <input type="text" class="form-control" id="title" formControlName="title">
+                                        <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                                            <div *ngIf="title?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3"><label for="periodo" class="form-label">Período de
+                                            estudios</label>
+                                        <input type="text" class="form-control" id="periodo" formControlName="periodo">
+                                        <div *ngIf="periodo?.invalid && (periodo?.dirty || periodo?.touched)">
+                                            <div *ngIf="periodo?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary"
+                                    (click)="guardarEducacion(item)" data-bs-dismiss="modal">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    </div>
+    <div class="modal fade" id="new-edu" tabindex="-1" aria-labelledby="new-eduLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="new-eduLabel">Nueva Educación...</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form [formGroup]="form">
+                                    <div class="mb-3">
+                                        <label for="img" class="form-label">Imagen de la Institución</label>
+                                        <input type="text" class="form-control" id="img" formControlName="img">
+                                        <div *ngIf="img?.invalid && (img?.dirty || img?.touched)">
+                                            <div *ngIf="img?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                            <div *ngIf="img?.errors?.['pattern']" class="text-danger">
+                                                El formato no es correcto.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3"><label for="school" class="form-label">Institución</label>
+                                        <input type="text" class="form-control" id="school" formControlName="school">
+                                        <div *ngIf="school?.invalid && (school?.dirty || school?.touched)">
+                                            <div *ngIf="school?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label">Título de estudios realizados</label>
+                                        <input type="text" class="form-control" id="title" formControlName="title">
+                                        <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                                            <div *ngIf="title?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3"><label for="periodo" class="form-label">Período de
+                                            estudios</label>
+                                        <input type="text" class="form-control" id="periodo" formControlName="periodo">
+                                        <div *ngIf="periodo?.invalid && (periodo?.dirty || periodo?.touched)">
+                                            <div *ngIf="periodo?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary"
+                                    (click)="crearEducacion()">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </section>
+
