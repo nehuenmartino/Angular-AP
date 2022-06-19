@@ -21,6 +21,4 @@ export class Education {
     this.periodo = periodo;
     this.idPerson = idPerson;
   }
-
-  /*hacer getters y setters*/
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonService } from 'src/app/services/person.service';
+import { SkillService} from 'src/app/services/skill.service';
+import { Skill } from 'src/app/entities/skill'
+import { FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-skills',
@@ -7,13 +10,17 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
-  skills: any;
+  listSkills!: Skill[];
 usuarioAutenticado: boolean= true;
-  constructor(private servicioDePersona: PersonService) {}
+form!: FormGroup;
+  constructor(private servicioDePersona: SkillService) {}
 
   ngOnInit(): void {
     this.servicioDePersona.obtenerDatosHabilidades().subscribe((data) => {
-      this.skills = data['skills'];
+      this.listSkills = data['skills'];
     });
+  }
+  eliminarSkill(item: Skill){
+
   }
 }

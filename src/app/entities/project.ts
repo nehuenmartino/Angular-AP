@@ -12,6 +12,4 @@ export class Project {
            this.date = date;
            this.link = link;
        }
-   
-       /*hacer getters y setters*/
    }

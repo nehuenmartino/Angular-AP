@@ -2,7 +2,6 @@ import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from '../entities/person';
-import { Experience } from '../entities/experience';
 import {Project} from '../entities/project';
 
 
@@ -21,21 +20,7 @@ url: string="http://localhost:8080/persona";
      return this.http.post(this.url, person)
    }
 
-
-   obtenerDatosExperiencia():Observable<any>{
-    return this.http.get('assets/data/exp.json')
-   }
-   editarDatosExperiencia(experience:Experience):Observable<any>{
-    return this.http.post('http://localhost:3000/posts', experience)
-  }
-
-
-   obtenerDatosHabilidades():Observable<any>{
-    return this.http.get('assets/data/skills.json')
-   }
-
-
-   
+     
    obtenerDatosProyectos():Observable<any>{
     return this.http.get('assets/data/project.json')
    }

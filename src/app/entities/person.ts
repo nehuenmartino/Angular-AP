@@ -21,5 +21,4 @@ export class Person {
     
   }
 
-  /*hacer getters y setters*/
 }

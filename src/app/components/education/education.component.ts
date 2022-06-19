@@ -23,7 +23,7 @@ export class EducationComponent implements OnInit {
       school: ['', [Validators.required]],
       periodo: ['', [Validators.required]],
       title: ['', [Validators.required]],
-      idPerson: ['4'],
+      idPerson: ['4']
     });
   }
 
@@ -36,16 +36,17 @@ export class EducationComponent implements OnInit {
   guardarEducacion(item: Education) {
     if (this.form.valid) {
       let eduEdit = new Education(
-        item.id,
+        this.form.controls['id'].value,
         this.form.controls['school'].value,
         this.form.controls['title'].value,
         this.form.controls['img'].value,
         this.form.controls['periodo'].value,
-        item.idPerson
+        this.form.controls['idPerson'].value
       );
       this.servicioDeEducacion.editarDatosEducacion(eduEdit).subscribe(
         (data) => {
           item = eduEdit;
+          document.getElementById('cerrarEducacion')?.click();
           this.form.reset();
           setTimeout(() => {
             this.ngOnInit();
@@ -67,20 +68,22 @@ export class EducationComponent implements OnInit {
     this.servicioDeEducacion
       .crearEducacion(this.form.value)
       .subscribe((data) => {
-        this.form.reset();
         this.listEducation.push();
         alert('Educación agregada');
         setTimeout(() => {
-            this.ngOnInit();
-          }, 0);
+          this.ngOnInit();
+        }, 0);
       });
+      document.getElementById('cerrarNuevaEducacion')?.click();
   }
 
   mostrarDatosEducacion(item: Education) {
+    this.form.get('id')?.setValue(item.id);
     this.form.get('school')?.setValue(item.school);
     this.form.get('title')?.setValue(item.title);
     this.form.get('img')?.setValue(item.img);
     this.form.get('periodo')?.setValue(item.periodo);
+    this.form.get('idPerson')?.setValue(item.idPerson);
   }
 
   eliminarEducacion(item: Education) {
@@ -90,7 +93,9 @@ export class EducationComponent implements OnInit {
       });
     }
   }
-
+  get id() {
+    return this.form.get('id');
+  }
   get img() {
     return this.form.get('img');
   }
@@ -104,5 +109,8 @@ export class EducationComponent implements OnInit {
   }
   get title() {
     return this.form.get('title');
+  }
+  get idPerson() {
+    return this.form.get('idPerson');
   }
 }

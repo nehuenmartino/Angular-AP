@@ -7,7 +7,7 @@ import { Education } from '../entities/education';
   providedIn: 'root',
 })
 export class EducationService {
-  url: string = "http://localhost:8080/experiencia";
+  url: string = "http://localhost:8080/educacion";
   constructor(private http: HttpClient) {}
 
   obtenerDatosEducacion(): Observable<Education[]> {

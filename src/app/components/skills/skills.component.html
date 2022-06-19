@@ -15,11 +15,11 @@
     <div class="container-fluid">
         <div class="col">
             <div class="row">
-                <div *ngFor="let item of skills" class="card text-center" style="width: 15rem;">
+                <div *ngFor="let item of listSkills" class="card text-center" style="width: 15rem;">
                     <img [src]="item.img" class="card-img-top img-fluid"/>
                     <div class="card-body">
                         <h3 class="card-text">{{item.skill}}</h3>
-                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2">
+                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2"(click)="eliminarSkill(item)">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
