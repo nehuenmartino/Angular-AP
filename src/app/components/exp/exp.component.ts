@@ -105,7 +105,6 @@ export class ExpComponent implements OnInit {
 get description() {
     return this.form.get('description');
   }
-  
 
   get periodo() {
     return this.form.get('periodo');

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PersonService } from 'src/app/services/person.service';
+import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/entities/project';
 @Component({
   selector: 'app-projects',
@@ -8,45 +8,50 @@ import { Project } from 'src/app/entities/project';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  project: any;
+  listProjects!: Project[];
   usuarioAutenticado: boolean = true;
   form!: FormGroup;
 
   constructor(
-    private servicioDePersona: PersonService,
+    private servicioDeProyecto: ProjectService,
     private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
+      id:[''],
       title: ['', [Validators.required]],
       img: ['', [Validators.required, Validators.pattern('https?://.+')]],
       description: ['', [Validators.required]],
       date: ['', [Validators.required]],
       link: ['', [Validators.required, Validators.pattern('https?://.+')]],
+      idPerson: ['4']
     });
   }
 
   ngOnInit(): void {
-    this.servicioDePersona.obtenerDatosProyectos().subscribe((data) => {
-      console.log(data);
-      this.project = data['project'];
+    this.servicioDeProyecto.obtenerDatosProyectos().subscribe((data) => {
+      this.listProjects = data;
     });
   }
-  guardarProyectos() {
+  guardarProyectos(item:Project) {
     if (this.form.valid) {
       let projectEdit = new Project(             
-        
+        this.form.controls['id'].value,
         this.form.controls['title'].value,
         this.form.controls['img'].value,
         this.form.controls['description'].value,
         this.form.controls['date'].value,
-        this.form.controls['link'].value
+        this.form.controls['link'].value,
+        this.form.controls['idPerson'].value
         
       );
-      this.servicioDePersona.editarDatosProyectos(projectEdit).subscribe(
+      this.servicioDeProyecto.editarDatosProyecto(projectEdit).subscribe(
         (data) => {
-          this.project = projectEdit;
-          this.form.reset();
+          item = projectEdit;
           document.getElementById('cerrarProyectos')?.click();
+          this.form.reset();
+          setTimeout(() => {
+            this.ngOnInit();
+          }, 0);
         },
         (error) => {
           alert(
@@ -59,17 +64,42 @@ export class ProjectsComponent implements OnInit {
       alert('HAY CAMPOS NO VALIDOS');
     }
   }
-  mostrarDatosProyectos() {
 
-    
-    this.form.get('title')?.setValue(this.project.title);
-    this.form.get('img')?.setValue(this.project.img);
-    this.form.get('description')?.setValue(this.project.description);
-    this.form.get('date')?.setValue(this.project.date);
-    
-            
+  crearProyecto() {
+    this.servicioDeProyecto
+      .crearProyecto(this.form.value)
+      .subscribe((data) => {
+        this.listProjects.push();
+        alert('Educación agregada');
+        setTimeout(() => {
+          this.ngOnInit();
+        }, 0);
+      });
+      document.getElementById('cerrarNuevoProyecto')?.click();
+  }
+  
+  mostrarDatosProyectos(item:Project) {
+
+    this.form.get('id')?.setValue(item.id);
+    this.form.get('title')?.setValue(item.title);
+    this.form.get('img')?.setValue(item.img);
+    this.form.get('description')?.setValue(item.description);
+    this.form.get('date')?.setValue(item.date);
+    this.form.get('link')?.setValue(item.link);
+    this.form.get('idPerson')?.setValue(item.idPerson);
+                
+  }
+  eliminarProyecto(item: Project) {
+    if (confirm('¿Desea eliminar el registro?')) {
+      this.servicioDeProyecto.eliminarProyecto(item.id).subscribe((data) => {
+        this.listProjects.splice(this.listProjects.indexOf(item), 1);
+      });
+    }
   }
 
+  get id() {
+    return this.form.get('id');
+  }
   get title() {
     return this.form.get('title');
   }  
@@ -84,5 +114,8 @@ export class ProjectsComponent implements OnInit {
   }
   get link(){
     return this.form.get('link');
+  }
+  get idPerson() {
+    return this.form.get('idPerson');
   }
 }

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
-import { EmailComponent } from './components/email/email.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ExpComponent } from './components/exp/exp.component';
 import { EducationComponent } from './components/education/education.component';
@@ -21,7 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     BannerComponent,
     SocialMediaComponent,
-    EmailComponent,
     AboutMeComponent,
     ExpComponent,
     EducationComponent,

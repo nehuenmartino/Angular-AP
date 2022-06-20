@@ -15,11 +15,11 @@
         </div>
 
         <div class="container-fluid">
-            <div *ngFor="let item of listExperience" class="row">
-                <div class="col-2 mb-3">
+            <div *ngFor="let item of listExperience" class="row m-3">
+                <div class="col-2 ">
                     <img [src]="item.img" class="img-fluid">
                 </div>
-                <div class="col mt-3">
+                <div class="col">
                     <div class="row">
                         <div class="col-10">
                             <h3>{{item.job}}</h3>
@@ -83,9 +83,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mb-3"><label for="period" class="form-label">Período de
+                                    <div class="mb-3"><label for="periodo" class="form-label">Período de
                                             funciones</label>
-                                        <input type="text" class="form-control" id="period" formControlName="period">
+                                        <input type="text" class="form-control" id="periodo" formControlName="periodo">
                                         <div *ngIf="periodo?.invalid && (periodo?.dirty || periodo?.touched)">
                                             <div *ngIf="periodo?.errors?.['required']" class="text-danger">
                                                 Este campo es obligatorio
@@ -149,9 +149,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mb-3"><label for="period" class="form-label">Período de
+                                    <div class="mb-3"><label for="periodo" class="form-label">Período de
                                             funciones</label>
-                                        <input type="text" class="form-control" id="period" formControlName="period">
+                                        <input type="text" class="form-control" id="periodo" formControlName="periodo">
                                         <div *ngIf="periodo?.invalid && (periodo?.dirty || periodo?.touched)">
                                             <div *ngIf="periodo?.errors?.['required']" class="text-danger">
                                                 Este campo es obligatorio

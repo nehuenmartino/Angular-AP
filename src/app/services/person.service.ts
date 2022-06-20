@@ -2,7 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from '../entities/person';
-import {Project} from '../entities/project';
+
 
 
 @Injectable({
@@ -19,12 +19,4 @@ url: string="http://localhost:8080/persona";
    editarDatosPersona(person:Person):Observable<any>{
      return this.http.post(this.url, person)
    }
-
-     
-   obtenerDatosProyectos():Observable<any>{
-    return this.http.get('assets/data/project.json')
-   }
-   editarDatosProyectos(project: Project):Observable<any>{
-    return this.http.post('http://localhost:3000/posts', project)
-  }
 }
