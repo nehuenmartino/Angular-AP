@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Person } from '../entities/person';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +17,5 @@ url: string="http://localhost:8080/persona";
    }
    editarDatosPersona(person:Person):Observable<any>{
      return this.http.post(this.url, person)
-   }
+   }   
 }

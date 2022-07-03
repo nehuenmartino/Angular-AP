@@ -1,12 +1,86 @@
 <div class="social-media">
-    <a href="https://www.github.com/{{person.github}}" target="_blank"><i class="fa-brands fa-github"></i></a>
-    <a href="https://www.instagram.com/{{person.instagram}}/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/{{person.linkedin}}/" target="_blank"><i
+    <a *ngIf="usuarioAutenticado"
+                data-bs-toggle="modal" data-bs-target="#editar-redes" (click)="mostrarDatosRedes()">
+                <i class="fa-solid fa-pencil"></i>
+</a>
+    <a href="https://github.com/{{socialmedia.github}}" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="https://instagram.com/{{socialmedia.instagram}}/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://linkedin.com/in/{{socialmedia.linkedin}}/" target="_blank"><i
             class="fa-brands fa-linkedin-in"></i></a>
-    <a href="https://codepen.io/{{person.codepen}}/" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+    <a href="https://codepen.io/{{socialmedia.codepen}}/" target="_blank"><i class="fa-brands fa-codepen"></i></a>
 </div>
 <div class="email">
-    <a href="{{'mailto:'+ person.email}}" target="_blank">
-        <p>{{person.email}}</p>
+    <a href="{{'mailto:'+ socialmedia.email}}" target="_blank">
+        <p>{{socialmedia.email}}</p>
     </a>
 </div>
+<div class="modal fade" id="editar-redes" tabindex="-1" aria-labelledby="editar-redes"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editar-redes">Editar Redes Sociales...</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form [formGroup]="form">
+                                    <div class="mb-3"><label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" formControlName="email">
+                                        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                                            <div *ngIf="email?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                            <div *ngIf="email?.errors?.['email']" class="text-danger">
+                                                El formato no es correcto.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="github" class="form-label">Usuario de Github</label>
+                                        <input type="text" class="form-control" id="github" formControlName="github">
+                                        <div *ngIf="github?.invalid && (github?.dirty || github?.touched)">
+                                            <div *ngIf="github?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="linkedin" class="form-label">Usuario de Linkedin</label>
+                                        <input type="text" class="form-control" id="linkedin" formControlName="linkedin">
+                                        <div *ngIf="linkedin?.invalid && (linkedin?.dirty || linkedin?.touched)">
+                                            <div *ngIf="linkedin?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="codepen" class="form-label">Usuario de Codepen</label>
+                                        <input type="text" class="form-control" id="codepen" formControlName="codepen">
+                                        <div *ngIf="codepen?.invalid && (codepen?.dirty || codepen?.touched)">
+                                            <div *ngIf="codepen?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="instagram" class="form-label">Usuario de Instagram</label>
+                                        <input type="text" class="form-control" id="instagram" formControlName="instagram">
+                                        <div *ngIf="instagram?.invalid && (instagram?.dirty || instagram?.touched)">
+                                            <div *ngIf="instagram?.errors?.['required']" class="text-danger">
+                                                Este campo es obligatorio
+                                            </div>                                            
+                                        </div>
+                                    </div>                                                               
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="cerrarRedes" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary"
+                                    (click)="guardarDatosRedes()">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
