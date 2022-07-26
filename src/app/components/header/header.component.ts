@@ -24,7 +24,8 @@ Ingresar(){
   const{email,password}= this.usuario;
   this.authService.login(email,password).then(res=>{
     console.log("Usuario logueado con éxito: ", res);
-  })
+  });
+  document.getElementById('cerrarLogIn')?.click(); 
 }
 logout(){
   this.authService.logout();

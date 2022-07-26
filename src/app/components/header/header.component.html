@@ -24,11 +24,9 @@
             </div>
             <div class="col">
                 <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
-                    data-bs-target="#log-in-button">Log In</button>
-            </div>
-            <div class="col">
-                    <button class="btn btn-outline-danger" *ngIf="usuarioAutenticado|async" (click)="logout()">Log Out</button>
-                </div>
+                    data-bs-target="#log-in-button" *ngIf="(usuarioAutenticado|async)=== (null)">Log In</button>
+                    <button class="btn btn-outline-danger" *ngIf="(usuarioAutenticado|async)" (click)="logout()">Log Out</button>
+            </div>            
         </div>
     </div>
     <div class="modal fade" id="log-in-button" tabindex="-1" aria-labelledby="log-in-buttonLabel" aria-hidden="true">
@@ -46,7 +44,7 @@
         <input class="form-control m-2" type="password" placeholder="ingrese su password" [(ngModel)]="usuario.password">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
+                    <button type="button" id="cerrarLogIn"class="btn btn-secondary"
                         data-bs-dismiss="modal">Cerrar</button>
                         <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
                 </div>

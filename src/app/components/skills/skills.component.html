@@ -19,7 +19,7 @@
                     <img [src]="item.img" class="card-img-top img-fluid"/>
                     <div class="card-body">
                         <h3 class="card-text">{{item.skill}}</h3>
-                        <button *ngIf="usuarioAutenticado" class="btn btn-outline-danger rounded-circle m-2"(click)="eliminarHabilidad(item)">
+                        <button *ngIf="usuarioAutenticado|async" class="btn btn-outline-danger rounded-circle m-2"(click)="eliminarHabilidad(item)">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>

@@ -24,7 +24,7 @@
                         <div class="d-grid gap-2 col-6 mx-auto mt-3">
                             <a class="btn btn-outline-light" href="{{item.link}}" target="_blank" role="button">Ver</a>
                         </div>
-                        <div *ngIf="usuarioAutenticado" class="col mt-3">
+                        <div *ngIf="usuarioAutenticado|async" class="col mt-3">
                             <button class="btn btn-outline-light rounded-circle m-2" data-bs-toggle="modal" data-bs-target="#edit-button-pro" (click)="mostrarDatosProyectos(item)">
                                 <i class="fa-solid fa-pencil"></i>
                             </button>
