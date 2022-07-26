@@ -16,7 +16,7 @@
         <div class="col-3 mt-1">
             <h2>Sobre mí...</h2>
         </div>
-        <div class="col"><button *ngIf="usuarioAutenticado" class="btn btn-outline-light rounded-circle m-2"
+        <div class="col"><button *ngIf="usuarioAutenticado|async" class="btn btn-outline-light rounded-circle m-2"
                 data-bs-toggle="modal" data-bs-target="#edit-button" (click)="mostrarDatos()">
                 <i class="fa-solid fa-pencil"></i>
             </button></div>

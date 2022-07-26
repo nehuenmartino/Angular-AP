@@ -1,5 +1,5 @@
 <div class="social-media">
-    <a *ngIf="usuarioAutenticado"
+    <a *ngIf="usuarioAutenticado|async"
                 data-bs-toggle="modal" data-bs-target="#editar-redes" (click)="mostrarDatosRedes()">
                 <i class="fa-solid fa-pencil"></i>
 </a>

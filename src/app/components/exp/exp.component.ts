@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Experience} from 'src/app/entities/experience';
+import { AuthService } from 'src/app/services/auth.service';
 import { ExperienceService } from 'src/app/services/experience.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { ExperienceService } from 'src/app/services/experience.service';
 })
 export class ExpComponent implements OnInit {
   listExperience!: Experience[];
-  usuarioAutenticado: boolean = true;
+  usuarioAutenticado= this.authService.getUserLogged();
   form!: FormGroup;
 
   constructor(
     private servicioDeExperiencia: ExperienceService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.form = this.formBuilder.group({
       id: [''],

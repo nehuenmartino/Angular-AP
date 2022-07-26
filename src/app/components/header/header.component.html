@@ -26,6 +26,9 @@
                 <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
                     data-bs-target="#log-in-button">Log In</button>
             </div>
+            <div class="col">
+                    <button class="btn btn-outline-danger" *ngIf="usuarioAutenticado|async" (click)="logout()">Log Out</button>
+                </div>
         </div>
     </div>
     <div class="modal fade" id="log-in-button" tabindex="-1" aria-labelledby="log-in-buttonLabel" aria-hidden="true">
@@ -36,12 +39,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+                    <label style="float:left;">Email</label>
+        <input class="form-control m-2" type="email" placeholder="ingrese su email" [(ngModel)]="usuario.email">
+
+        <label style="float:left;">Password</label>
+        <input class="form-control m-2" type="password" placeholder="ingrese su password" [(ngModel)]="usuario.password">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
                         data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
                 </div>
+                
             </div>
         </div>
     </div>

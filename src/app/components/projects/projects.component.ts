@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/entities/project';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -9,12 +10,13 @@ import { Project } from 'src/app/entities/project';
 })
 export class ProjectsComponent implements OnInit {
   listProjects!: Project[];
-  usuarioAutenticado: boolean = true;
+  usuarioAutenticado= this.authService.getUserLogged();
   form!: FormGroup;
 
   constructor(
     private servicioDeProyecto: ProjectService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.form = this.formBuilder.group({
       id:[''],

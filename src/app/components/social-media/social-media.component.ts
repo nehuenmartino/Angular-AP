@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SocialMedia } from 'src/app/entities/socialmedia';
+import { AuthService } from 'src/app/services/auth.service';
 import { SocialmediaService } from 'src/app/services/socialmedia.service';
 
 @Component({
@@ -10,11 +11,12 @@ import { SocialmediaService } from 'src/app/services/socialmedia.service';
 })
 export class SocialMediaComponent implements OnInit {
   socialmedia!: SocialMedia;
-  usuarioAutenticado: boolean = true;
+  usuarioAutenticado= this.authService.getUserLogged();
   form!: FormGroup;
   constructor(
     private servicioDeRedes: SocialmediaService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
     ) {
       this.form = this.formBuilder.group({
         id:[''],

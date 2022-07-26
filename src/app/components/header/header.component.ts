@@ -7,7 +7,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  usuario={
+    email:'',
+    password:''
+      }
 usuarioAutenticado= this.authService.getUserLogged();
 
 
@@ -16,6 +19,15 @@ usuarioAutenticado= this.authService.getUserLogged();
 }
 
 ngOnInit(): void {}
-
+Ingresar(){
+  console.log(this.usuario);
+  const{email,password}= this.usuario;
+  this.authService.login(email,password).then(res=>{
+    console.log("Usuario logueado con éxito: ", res);
+  })
+}
+logout(){
+  this.authService.logout();
+}
 
 }

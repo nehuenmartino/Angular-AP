@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Person } from 'src/app/entities/person';
+import { AuthService } from 'src/app/services/auth.service';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class AboutMeComponent implements OnInit {
   person!: Person;
-  usuarioAutenticado: boolean = true;
+  usuarioAutenticado= this.authService.getUserLogged();
   form!: FormGroup;
 
   constructor(
     private servicioDePersona: PersonService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.form = this.formBuilder.group({
       fullName: ['', [Validators.required]],

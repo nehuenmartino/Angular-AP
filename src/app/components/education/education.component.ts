@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Education } from 'src/app/entities/education';
+import { AuthService } from 'src/app/services/auth.service';
 import { EducationService } from 'src/app/services/education.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { EducationService } from 'src/app/services/education.service';
 })
 export class EducationComponent implements OnInit {
   listEducation!: Education[];
-  usuarioAutenticado: boolean = true;
+  usuarioAutenticado= this.authService.getUserLogged();
   form!: FormGroup;
 
   constructor(
     private servicioDeEducacion: EducationService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.form = this.formBuilder.group({
       id: [''],

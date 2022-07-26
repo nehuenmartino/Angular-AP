@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SkillService } from 'src/app/services/skill.service';
 import { Skill } from 'src/app/entities/skill';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-skills',
@@ -10,12 +11,13 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 export class SkillsComponent implements OnInit {
   listSkills!: Skill[];
-  usuarioAutenticado: boolean = true;
+  usuarioAutenticado= this.authService.getUserLogged();
   form!: FormGroup;
 
   constructor(
     private servicioDeHabilidad: SkillService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
     ) {
       this.form = this.formBuilder.group({
         id: [''],

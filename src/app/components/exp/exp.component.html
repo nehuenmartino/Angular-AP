@@ -6,7 +6,7 @@
                     <h2>Experiencia</h2>
                 </div>
                 <div class="col-1">
-                    <button *ngIf="usuarioAutenticado" class="btn btn-outline-info rounded-circle m-2"
+                    <button *ngIf="usuarioAutenticado|async" class="btn btn-outline-info rounded-circle m-2"
                         data-bs-toggle="modal" data-bs-target="#new-exp">
                         <i class="fa-solid fa-plus"></i>
                     </button>
