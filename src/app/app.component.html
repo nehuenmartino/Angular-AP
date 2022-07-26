@@ -24,7 +24,12 @@
         <input class="form-control m-2" type="password" placeholder="ingrese su password" [(ngModel)]="usuario.password">
 
         <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
-        <label>Aún no tienes cuenta?</label> <a href="#">Registrarse</a>
+        
+    <div>
+        <button class="btn btn-info btn-block m2" (click)="obtenerUsuarioLogeado()">Usuario Logeado</button>
+        <button class="btn btn-info btn-block m2" (click)="logout()">Log Out</button>
     </div>
+</div>
+    
 
 </div>

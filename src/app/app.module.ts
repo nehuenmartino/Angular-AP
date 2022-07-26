@@ -14,6 +14,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {AngularFireModule} from '@angular/fire/compat';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

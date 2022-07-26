@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,20 @@ export class AppComponent {
 email:'',
 password:''
   }
+  constructor(private authService: AuthService){
+
+  }
 Ingresar(){
   console.log(this.usuario);
+  const{email,password}= this.usuario;
+  this.authService.login(email,password).then(res=>{
+    console.log("Se registró: ", res);
+  })
+}
+obtenerUsuarioLogeado(){
+  this.authService.getUserLogged().subscribe(res=>{console.log(res?.email);})
+}
+logout(){
+  this.authService.logout();
 }
 }

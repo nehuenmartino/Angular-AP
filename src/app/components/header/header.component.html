@@ -36,34 +36,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="form">
-                        <div class="mb-3">
-                            <label for="user" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" id="user" formControlName="user">
-                            <div *ngIf="user?.invalid && (user?.dirty || user?.touched)">
-                                <div *ngIf="user?.errors?.['required']" class="text-danger">
-                                    Este campo es obligatorio
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Contraseña</label>
-                                <input type="text" class="form-control" id="password" formControlName="password">
-                                <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-                                    <div *ngIf="password?.errors?.['required']" class="text-danger">
-                                        Este campo es obligatorio
-                                    </div>
-                                    <div *ngIf="password?.errors?.['pattern']" class="text-danger">
-                                        El formato no es correcto.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="cerrarAcercaDe" class="btn btn-secondary"
+                    <button type="button" class="btn btn-secondary"
                         data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" (click)="comprobarUsuario()">Guardar</button>
                 </div>
             </div>
         </div>
