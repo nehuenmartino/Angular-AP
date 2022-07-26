@@ -7,11 +7,11 @@ import { Project } from 'src/app/entities/project';
   providedIn: 'root',
 })
 export class ProjectService {
-  url: string = "http://localhost:8080/proyectos";
+  url: string = "https://backend-ap-deploy.herokuapp.com/proyectos";
   constructor(private http: HttpClient) {}
 
   obtenerDatosProyectos(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.url + "/4");
+    return this.http.get<Project[]>(this.url + "/1");
   }
   editarDatosProyecto(project: Project): Observable<any> {
     return this.http.put(this.url + '/editar', project);

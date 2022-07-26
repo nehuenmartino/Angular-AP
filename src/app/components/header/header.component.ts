@@ -17,7 +17,7 @@ private formBuilder: FormBuilder
 ) { 
   this.form = this.formBuilder.group({
     user: ['', [Validators.required]],
-    password: ['', [Validators.required, Validators.pattern('https?://.+')]]
+    password: ['', [Validators.required]]
   })
 }
 
@@ -34,7 +34,9 @@ comprobarUsuario(){
   } else
   this.form.markAllAsTouched();
       alert('Usuario o contraseña incorrectos.');
+      console.log(this.form);
 }
+
 get user() {
   return this.form.get('user');
 }

@@ -8,14 +8,14 @@ import { Person } from '../entities/person';
   providedIn: 'root'
 })
 export class PersonService {
-url: string="http://localhost:8080/persona";
+url: string="https://backend-ap-deploy.herokuapp.com/persona";
 
   constructor(private http:HttpClient) {
    }
    obtenerDatosPersona():Observable<Person>{
-    return this.http.get<Person>(this.url+"/4")
+    return this.http.get<Person>(this.url+"/1")
    }
    editarDatosPersona(person:Person):Observable<any>{
-     return this.http.post(this.url, person)
+     return this.http.put(this.url, person)
    }   
 }

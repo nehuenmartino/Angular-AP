@@ -12,7 +12,8 @@ import { EducationComponent } from './components/education/education.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import {HttpClientModule} from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AngularFireModule} from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,7 @@ export class SkillsComponent implements OnInit {
         id: [''],
         skill: ['', [Validators.required]],
         img: ['', [Validators.required, Validators.pattern('https?://.+')]],
-        idPerson: ['4']
+        idPerson: ['1']
       });
     }
 

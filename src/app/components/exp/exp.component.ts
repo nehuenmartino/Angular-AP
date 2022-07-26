@@ -23,7 +23,7 @@ export class ExpComponent implements OnInit {
       img: ['', [Validators.required, Validators.pattern('https?://.+')]],
       description: ['', [Validators.required]],
       periodo: ['', [Validators.required]],
-      idPerson: ['4']
+      idPerson: ['1']
     });
   }
 

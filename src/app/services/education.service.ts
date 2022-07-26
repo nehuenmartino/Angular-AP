@@ -7,11 +7,11 @@ import { Education } from '../entities/education';
   providedIn: 'root',
 })
 export class EducationService {
-  url: string = "http://localhost:8080/educacion";
+  url: string = "https://backend-ap-deploy.herokuapp.com/educacion";
   constructor(private http: HttpClient) {}
 
   obtenerDatosEducacion(): Observable<Education[]> {
-    return this.http.get<Education[]>(this.url + "/4");
+    return this.http.get<Education[]>(this.url + "/1");
   }
   editarDatosEducacion(education: Education): Observable<any> {
     return this.http.put(this.url + '/editar', education);

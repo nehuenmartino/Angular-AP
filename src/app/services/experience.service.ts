@@ -7,11 +7,11 @@ import { Experience } from '../entities/experience';
   providedIn: 'root'
 })
 export class ExperienceService {  
-  url: string = "http://localhost:8080/experiencia";
+  url: string = "https://backend-ap-deploy.herokuapp.com/experiencia";
 constructor(private http: HttpClient) {}
 
 obtenerDatosExperiencia(): Observable<Experience[]> {
-  return this.http.get<Experience[]>(this.url + "/4");
+  return this.http.get<Experience[]>(this.url + "/1");
 }
 editarDatosExperiencia(experience: Experience): Observable<any> {
   return this.http.put(this.url + '/editar', experience);

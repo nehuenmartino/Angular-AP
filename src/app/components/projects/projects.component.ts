@@ -23,7 +23,7 @@ export class ProjectsComponent implements OnInit {
       description: ['', [Validators.required]],
       date: ['', [Validators.required]],
       link: ['', [Validators.required, Validators.pattern('https?://.+')]],
-      idPerson: ['4']
+      idPerson: ['1']
     });
   }
 

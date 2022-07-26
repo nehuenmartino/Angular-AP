@@ -6,12 +6,12 @@ import {SocialMedia} from '../entities/socialmedia';
   providedIn: 'root'
 })
 export class SocialmediaService {
-  url: string="http://localhost:8080/redes";
+  url: string="https://backend-ap-deploy.herokuapp.com/redes";
 
   constructor(private http:HttpClient) {
    }
    obtenerDatosRedes():Observable<SocialMedia>{
-    return this.http.get<SocialMedia>(this.url+"/4");
+    return this.http.get<SocialMedia>(this.url+"/1");
    }
    editarDatosRedes(socialmedia:SocialMedia):Observable<any>{
      return this.http.put(this.url + '/editar', socialmedia);

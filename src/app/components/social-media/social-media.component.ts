@@ -23,7 +23,7 @@ export class SocialMediaComponent implements OnInit {
         linkedin: ['', [Validators.required]],
         codepen: ['', [Validators.required]],
         instagram: ['', [Validators.required]],
-        idPerson: ['4']
+        idPerson: ['1']
       });
     }
 

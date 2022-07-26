@@ -6,11 +6,11 @@ import { Skill } from 'src/app/entities/skill';
   providedIn: 'root',
 })
 export class SkillService {
-  url: string = 'http://localhost:8080/habilidades';
+  url: string = 'https://backend-ap-deploy.herokuapp.com/habilidades';
   constructor(private http: HttpClient) {}
 
   obtenerDatosHabilidades(): Observable<Skill[]> {
-    return this.http.get<Skill[]>(this.url + '/4');
+    return this.http.get<Skill[]>(this.url + '/1');
   }
   crearHabilidad(skill: Skill): Observable<Skill[]> {
     return this.http.post<Skill[]>(this.url + '/crear', skill);

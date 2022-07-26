@@ -6,8 +6,25 @@
 <app-education></app-education>
 <app-skills></app-skills>
 <app-projects></app-projects>
-    <footer class="text-center">
-        
-        <p>Diseñado por Nehuen Martino como proyecto final de Argentina Programa.</p>
-        <p>#YoProgramo 2022</p>
-    </footer>
+<footer class="text-center">
+
+    <p>Diseñado por Nehuen Martino como proyecto final de Argentina Programa.</p>
+    <p>#YoProgramo 2022</p>
+</footer>
+
+<div class="card text-center">
+    <div class="card-header">
+        <b>LOG IN</b>
+    </div>
+    <div class="card-body p-4">
+        <label style="float:left;">Email</label>
+        <input class="form-control m-2" type="email" placeholder="ingrese su email" [(ngModel)]="usuario.email">
+
+        <label style="float:left;">Password</label>
+        <input class="form-control m-2" type="password" placeholder="ingrese su password" [(ngModel)]="usuario.password">
+
+        <button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
+        <label>Aún no tienes cuenta?</label> <a href="#">Registrarse</a>
+    </div>
+
+</div>

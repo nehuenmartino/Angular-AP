@@ -23,7 +23,7 @@ export class EducationComponent implements OnInit {
       school: ['', [Validators.required]],
       periodo: ['', [Validators.required]],
       title: ['', [Validators.required]],
-      idPerson: ['4']
+      idPerson: ['1']
     });
   }
 
