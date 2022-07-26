@@ -49,7 +49,6 @@ export class ExpComponent implements OnInit {
         (data) => {
           item = expEdit;
           document.getElementById('cerrarExperiencia')?.click();
-          this.form.reset();
           setTimeout(() => {
             this.ngOnInit();
           }, 0);

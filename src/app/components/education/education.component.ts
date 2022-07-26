@@ -49,7 +49,6 @@ export class EducationComponent implements OnInit {
         (data) => {
           item = eduEdit;
           document.getElementById('cerrarEducacion')?.click();
-          this.form.reset();
           setTimeout(() => {
             this.ngOnInit();
           }, 0);

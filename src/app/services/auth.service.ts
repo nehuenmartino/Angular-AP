@@ -20,7 +20,7 @@ export class AuthService {
     try {
       return await this.afauth.signInWithEmailAndPassword(email, password);
     } catch (err) {
-      console.log('error en login: ', err);
+      alert('Usuario o contraseñas inválidas, intente nuevamente');
       return null;
     }
   }

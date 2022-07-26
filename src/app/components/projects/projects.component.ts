@@ -50,7 +50,6 @@ export class ProjectsComponent implements OnInit {
         (data) => {
           item = projectEdit;
           document.getElementById('cerrarProyectos')?.click();
-          this.form.reset();
           setTimeout(() => {
             this.ngOnInit();
           }, 0);
